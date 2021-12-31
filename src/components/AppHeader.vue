@@ -2,8 +2,15 @@
 	<header class="app-header">
 		<nav class="app-header__nav">
 			<ul class="app-header__menu">
-				<li v-for="menuItem in menuList" :key="menuItem.link">
-					<router-link :to="menuItem.link">{{menuItem.text}}</router-link>
+				<li class="app-header__menu-item" v-for="menuItem in menuList" :key="menuItem.link">
+					<router-link
+							:to="menuItem.link"
+							class="app-header__link"
+							:active-class="'app-header__link_active'"
+							exact
+					>
+						{{menuItem.text}}
+					</router-link>
 				</li>
 			</ul>
 		</nav>
@@ -34,6 +41,25 @@ export default class AppHeader extends Vue {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+	.app-header{
+		$self: &;
 
+		&__menu{
+			display: flex;
+			list-style: none;
+			padding: 0;
+		}
+
+		&__link{
+			display: block;
+			padding: 10px 15px;
+			text-decoration: none;
+			color: black;
+
+			&#{ $self }__link_active{
+				border-bottom: 1px solid black;
+			}
+		}
+	}
 </style>
