@@ -1,7 +1,9 @@
 <template>
 	<div class="app">
 		<app-header></app-header>
-		<router-view></router-view>
+		<main class="app-content">
+			<router-view></router-view>
+		</main>
 	</div>
 </template>
 
@@ -24,4 +26,9 @@ export default class App extends Vue {
 	html, body {
 		margin: 0;
 	}
+
+	.app-content{
+
+	}
+
 </style>
