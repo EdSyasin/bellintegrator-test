@@ -44,7 +44,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".js", ".vue", ".json"]
+        extensions: [".ts", ".js", ".vue", ".json"]
     },
     devServer: {
         port: 3000
