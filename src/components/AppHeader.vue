@@ -57,7 +57,7 @@ export default class AppHeader extends Vue {
 			text-decoration: none;
 			color: black;
 
-			&#{ $self }__link_active{
+			&_active{
 				border-bottom: 1px solid black;
 			}
 		}
