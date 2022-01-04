@@ -40,7 +40,7 @@ export default class AppItem extends Vue{
 	.app-item{
 		padding: 16px;
 		border-radius: 25px;
-		width: 270px;
+		width: 300px;
 		margin-bottom: 16px;
 		background: #f9f9f9;
 

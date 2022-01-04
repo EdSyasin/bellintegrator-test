@@ -1,14 +1,18 @@
 <template>
 	<div class="home-view">
-		<transition-group name="items" tag="ul" class="home-view__items">
-			<app-item
-				class="home-view__item"
-				v-for="item in items"
-				:item="item"
-				:key="item.id"
-				@click="addItem(item)"
-			></app-item>
-		</transition-group>
+
+		<section class="home-view__first-column">
+			<input class="home-view__filter-input" v-model="filter">
+			<transition-group name="items" tag="ul" class="home-view__items">
+				<app-item
+					class="home-view__item"
+					v-for="item in items"
+					:item="item"
+					:key="item.id"
+					@click="addItem(item)"
+				></app-item>
+			</transition-group>
+		</section>
 		<transition-group name="items" tag="ul" class="home-view__items">
 			<app-item
 				class="home-view__item"
@@ -32,8 +36,18 @@ import AppItem from "../components/AppItem.vue";
 	components: {AppItem}
 })
 export default class Home extends Vue {
+
+	filter: string = "";
+
 	get items (): IItem[] {
-		return this.$store.state.items.filter((x: IItem) => !this.addedItems.includes(x));
+		if (!this.filter){
+			return this.$store.state.items.filter((x: IItem) => !this.addedItems.includes(x));
+		} else {
+			const filteredItems = this.$store.state.items.filter((x: IItem) => !this.addedItems.includes(x) && this.checkReg(this.filter, x));
+			return [...filteredItems].sort((a: IItem, b: IItem) => {
+				return this.checkReg(this.filter, b) - this.checkReg(this.filter, a);
+			});
+		}
 	}
 
 	get addedItems (): IItem[] {
@@ -48,6 +62,13 @@ export default class Home extends Vue {
 		this.$store.dispatch("removeItem", item);
 	}
 
+	checkReg(reg: string, item: IItem): number{
+		const allNameStr = !item.items ? item.name : item.items.reduce((acum: string, item: IItem) => {
+			return acum+= ` ${item.name}`;
+		}, item.name)
+		const matchCount = allNameStr.match(new RegExp(reg, 'g'));
+		return matchCount ? matchCount.length : 0;
+	}
 
 }
 
@@ -59,10 +80,14 @@ export default class Home extends Vue {
 		display: flex;
 		justify-content: space-around;
 
+		&__filter-input{
+			width: 100%;
+		}
+
 		&__items{
 			list-style: none;
 			padding: 0;
-			width: 270px;
+			width: 300px;
 		}
 
 		&__item {

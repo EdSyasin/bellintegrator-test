@@ -28,6 +28,10 @@ export default class App extends Vue {
 	html, body {
 		margin: 0;
 		font-family: Roboto,serif;
+
+		*{
+			box-sizing: border-box;
+		}
 	}
 
 	.app-content{
