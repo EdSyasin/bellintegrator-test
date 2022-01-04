@@ -18,7 +18,9 @@ import AppHeader from "./components/AppHeader.vue";
 	}
 })
 export default class App extends Vue {
-
+	created(){
+		this.$store.dispatch('getItems');
+	}
 }
 </script>
 
