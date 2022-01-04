@@ -24,23 +24,23 @@ export default class HistoryItem extends Vue{
 </script>
 
 <style lang="scss" scoped>
-.history-item{
-	padding: 16px;
-	border-radius: 25px;
-	width: 270px;
-	background: rgba(27,255,0,0.15);
+	.history-item{
+		padding: 16px;
+		border-radius: 25px;
+		width: 270px;
+		background: rgba(27,255,0,0.15);
 
-	&_remove{
-		background: rgba(255,0,37,0.15);
+		&_remove{
+			background: rgba(255,0,37,0.15);
+		}
+
+		&__title, &__action{
+			margin-bottom: 16px;
+		}
+
+		&__title{
+			font-weight: 700;
+		}
+
 	}
-
-	&__title, &__action{
-		margin-bottom: 16px;
-	}
-
-	&__title{
-		font-weight: 700;
-	}
-
-}
 </style>
