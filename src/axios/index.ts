@@ -2,7 +2,9 @@ import axios, {AxiosInstance, AxiosRequestConfig} from "axios";
 import MockAdapter from "axios-mock-adapter";
 import getResultItems from "../services/mocking";
 
-if (process.env.NODE_ENV === "development"){
+const apiUrl = process.env.API_URL;
+
+if (!apiUrl){
     const mock = new MockAdapter(axios);
 
     mock.onGet("/items").reply(200, {
@@ -10,9 +12,8 @@ if (process.env.NODE_ENV === "development"){
     });
 }
 
-
 const config: AxiosRequestConfig = {
-    baseURL: "http://localhost:3001"
+    baseURL: apiUrl || "http://localhost"
 }
 
 const instance: AxiosInstance = axios.create(config);

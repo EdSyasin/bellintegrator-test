@@ -2,7 +2,7 @@
 	<div class="home-view">
 
 		<section class="home-view__first-column">
-			<input class="home-view__filter-input" v-model="filter">
+			<input class="home-view__filter-input" v-model="filter"><span>{{items.length}}</span>
 			<transition-group name="items" tag="ul" class="home-view__items">
 				<app-item
 					class="home-view__item"

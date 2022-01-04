@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
+const DotenvPlugin = require("dotenv-webpack");
 
 module.exports = {
     entry: "/src/main.ts",
@@ -14,7 +15,8 @@ module.exports = {
             template: __dirname + "/public/index.html",
             inject: "body"
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new DotenvPlugin()
     ],
     module: {
         rules: [

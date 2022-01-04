@@ -1,11 +1,12 @@
+const testWord = process.env.TEST_WORD;
+console.log('test word:', testWord);
 
-function makeId(length: number) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() *
-            charactersLength));
+
+function randomName(length: number) {
+    let result  = '';
+    const words = ["Love", "Secret", "English", "Result", "Auto", "TypeScript", "JavaScript", testWord || "Station"];
+    for ( let i = 0; i < length; i++ ) {
+        result += words[Math.floor(Math.random() * words.length)];
     }
     return result;
 }
@@ -19,7 +20,7 @@ function getItems(count: number){
     for (let i = 0; i < count; i++){
         result.push({
             id: i,
-            name: makeId(getRandomInt(20))
+            name: randomName(getRandomInt(5))
         })
     }
     return result;
@@ -30,7 +31,7 @@ export default function getResultItems(){
     for (let i = 0; i < 100; i++){
         result.push({
             id: i,
-            name: makeId(getRandomInt(20)),
+            name: randomName(getRandomInt(6)),
             items: getItems(getRandomInt(10))
         })
     }
