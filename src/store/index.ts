@@ -37,7 +37,7 @@ const store = new Vuex.Store({
             context.commit('setAddedItems', context.state.addedItems.filter((x: IItem) => x != item));
             context.commit("setHistory", [...context.state.history, {
                 item: item,
-                action: "delete",
+                action: "remove",
                 at: Date.now()
             }])
         },

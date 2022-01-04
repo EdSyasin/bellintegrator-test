@@ -1,5 +1,5 @@
 <template>
-	<li class="app-item">
+	<li class="app-item" >
 		<div class="app-item__title">
 			<span>{{item.id}}. {{item.name}}</span>
 		</div>

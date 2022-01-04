@@ -12,7 +12,21 @@ const routes = [
     {
         name: "History",
         path: "/history",
-        component: () => import(/* webpackChunkName: "HistoryView" */ "../views/History.vue")
+        component: () => import(/* webpackChunkName: "HistoryView" */ "../views/History.vue"),
+        children: [
+            {
+                path: "add",
+                meta: {
+                    historyAction: 'add'
+                }
+            },
+            {
+                path: "remove",
+                meta: {
+                    historyAction: 'remove'
+                }
+            }
+        ]
     }
 ];
 

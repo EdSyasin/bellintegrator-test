@@ -36,7 +36,16 @@ export default class AppHeader extends Vue {
 		{
 			text: "История",
 			link: "/history"
-		}
+		},
+		{
+			text: "История добавлений",
+			link: "/history/add"
+		},
+		{
+			text: "История удалений",
+			link: "/history/remove"
+		},
+
 	];
 }
 </script>
