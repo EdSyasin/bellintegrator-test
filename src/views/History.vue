@@ -42,7 +42,7 @@ export default class History extends Vue {
 		&__items{
 			list-style: none;
 			padding: 0;
-			width: 270px;
+			width: 315px;
 			margin-left: auto;
 			margin-right: auto;
 		}

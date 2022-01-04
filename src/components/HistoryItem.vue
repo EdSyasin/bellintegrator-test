@@ -27,7 +27,7 @@ export default class HistoryItem extends Vue{
 	.history-item{
 		padding: 16px;
 		border-radius: 25px;
-		width: 270px;
+		width: 315px;
 		background: rgba(27,255,0,0.15);
 
 		&_remove{
