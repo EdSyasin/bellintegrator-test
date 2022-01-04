@@ -42,7 +42,7 @@ const store = new Vuex.Store({
             }])
         },
         getItems(context): void{
-            http.get('/items')
+            http.get( process.env.API_ENDPOINT || '/items')
                 .then((res: AxiosResponse) => {
                     context.commit('setItems', res.data.items);
                 })
