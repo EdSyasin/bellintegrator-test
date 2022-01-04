@@ -42,7 +42,7 @@ const store = new Vuex.Store({
             }])
         },
         getItems(context): void{
-            http.get('/')
+            http.get('/items')
                 .then((res: AxiosResponse) => {
                     context.commit('setItems', res.data.items);
                 })
