@@ -27,6 +27,7 @@ export default class App extends Vue {
 <style lang="scss">
 	html, body {
 		margin: 0;
+		font-family: Roboto,serif;
 	}
 
 	.app-content{
